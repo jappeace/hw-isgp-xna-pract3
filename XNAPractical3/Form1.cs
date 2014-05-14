@@ -13,5 +13,15 @@ namespace XNAPractical3 {
 		public Form1() {
 			InitializeComponent();
 		}
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+
+            g.DrawLine(Pens.Black, new Point(10, 250), new Point(490, 250));
+            g.DrawLine(Pens.Black, new Point(250, 10), new Point(250, 490));
+
+
+        }
 	}
 }
