@@ -43,6 +43,8 @@ namespace ConsoleApplication1 {
 			Console.WriteLine(v+v);
 			Console.WriteLine(v-v);
 			Console.WriteLine(v*v);
+			Console.WriteLine("matrix times vector");
+			Console.WriteLine(x*v);
 			Console.ReadKey();
 		}
 	}

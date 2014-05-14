@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Transform;
 namespace XNAPractical3 {
 	public partial class Form1 : Form {
         private Square square;
@@ -39,5 +39,10 @@ namespace XNAPractical3 {
         {
             Scale();
         }
+
+		private Matrix rotate(double degrees){
+			return new Matrix();
+		}
+
 	}
 }
