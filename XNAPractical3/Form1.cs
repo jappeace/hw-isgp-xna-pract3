@@ -11,37 +11,30 @@ using Transform;
 namespace XNAPractical3 {
 	public partial class Form1 : Form {
         private Square square;
+		private MatrixFactory mfactory;
         private int stateCounter;
         
         public Form1() {
+			mfactory = new MatrixFactory();
 			InitializeComponent();
 
             stateCounter = 1;
-            square = new Square(400);
-		}
+            square = new Square(200);
+	        Matrix s = mfactory.createRotation(60) * mfactory.scale(0.5) *
+						mfactory.Translate(new Vector(69, 69, 0, 1));
+			square.ExecuteMatrix(s);
+        }
 
-        private void Scale(double scale)
-        {
-            Matrix matrix = new Matrix(new double[,]{
-                {scale, 0, 0, 0},
-                {0, scale, 0, 0},
-                {0, 0, scale, 0},
-                {0, 0, 0, 1}
-            });
+        private void Scale(double scale){
+	        Matrix matrix = mfactory.scale(scale);
 
             square.ExecuteMatrix(matrix);
 
             panel1.Invalidate();
         }
 
-        private void Translate(Vector t)
-        {
-            Matrix matrix = new Matrix(new double[,]{
-                {1, 0, 0, t.x},
-                {0, 1, 0, t.y},
-                {0, 0, 1, 0},
-                {0, 0, 0, 1}
-            });
+        private void Translate(Vector t){
+	        Matrix matrix = mfactory.Translate(t);
 
             square.ExecuteMatrix(matrix);
 
@@ -79,14 +72,7 @@ namespace XNAPractical3 {
 
 		private void rotate(double degrees){
 			double radians = (Math.PI / 180) * degrees;
-			square.ExecuteMatrix(new Matrix(
-				new double[,]{
-					{Math.Cos(radians), Math.Sin(radians), 0,0},
-					{-Math.Sin(radians), Math.Cos(radians), 0,0},
-					{0, 0, 1,0},
-					{0, 0, 0,1},
-				}
-			));
+			square.ExecuteMatrix(mfactory.createRotation(degrees));
 
             panel1.Invalidate();
 		}
