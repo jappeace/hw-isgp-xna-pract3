@@ -15,8 +15,15 @@ namespace XNAPractical3 {
         public Form1() {
 			InitializeComponent();
 
-            square = new Square(200);
+            square = new Square(100);
 		}
+
+        private void Scale()
+        {
+            square = new Square(10);
+
+            panel1.Invalidate();
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -26,6 +33,11 @@ namespace XNAPractical3 {
             g.DrawLine(Pens.Black, new Point(250, 10), new Point(250, 490));
 
             square.Draw(g);
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            Scale();
         }
 	}
 }
