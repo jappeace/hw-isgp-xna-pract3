@@ -18,6 +18,7 @@ namespace XNAPractical3 {
 
             stateCounter = 1;
             square = new Square(400);
+			rotate(25);
 		}
 
         private void Scale(double scale)
@@ -64,8 +65,16 @@ namespace XNAPractical3 {
             }
         }
 
-		private Matrix rotate(double degrees){
-			return new Matrix();
+		private void rotate(double degrees){
+			double radians = (Math.PI / 180) * degrees;
+			square.ExecuteMatrix(new Matrix(
+				new double[,]{
+					{Math.Cos(radians), Math.Sin(radians), 0,0},
+					{-Math.Sin(radians), Math.Cos(radians), 0,0},
+					{0, 0, 1,0},
+					{0, 0, 0,1},
+				}
+			));
 		}
 
 	}
