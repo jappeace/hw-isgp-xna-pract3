@@ -22,9 +22,12 @@ namespace XNAPractical3
             _v4 = new Vector(-size / 2, size / 2, 0, 1);
         }
 
-        private void Paint(Graphics g)
+        public void Draw(Graphics g)
         {
-            g.DrawLine(Pens.Red, new Point((int)_v1.x, (int)_v1.y), new Point((int)_v2.x, (int)_v2.y));
+            g.DrawLine(Pens.Red, new Point((int)_v1.x + 250, (int)_v1.y + 250), new Point((int)_v2.x + 250, (int)_v2.y + 250));
+            g.DrawLine(Pens.Red, new Point((int)_v2.x + 250, (int)_v2.y + 250), new Point((int)_v3.x + 250, (int)_v3.y + 250));
+            g.DrawLine(Pens.Red, new Point((int)_v3.x + 250, (int)_v3.y + 250), new Point((int)_v4.x + 250, (int)_v4.y + 250));
+            g.DrawLine(Pens.Red, new Point((int)_v4.x + 250, (int)_v4.y + 250), new Point((int)_v1.x + 250, (int)_v1.y + 250));
         }
     }
 }
