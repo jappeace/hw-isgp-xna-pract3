@@ -11,10 +11,12 @@ using Transform;
 namespace XNAPractical3 {
 	public partial class Form1 : Form {
         private Square square;
+        private int stateCounter;
         
         public Form1() {
 			InitializeComponent();
 
+            stateCounter = 1;
             square = new Square(400);
 		}
 
@@ -49,7 +51,17 @@ namespace XNAPractical3 {
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            Scale(0.9);
+            switch (stateCounter)
+            {
+                case 1:
+                    Scale(0.5);
+                    stateCounter++;
+                    break;
+                case 2:
+                    Scale(0.5);
+                    stateCounter = 1;
+                    break;
+            }
         }
 
 		private Matrix rotate(double degrees){
