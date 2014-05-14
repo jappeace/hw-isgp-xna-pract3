@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Transform;
 namespace XNAPractical3 {
 	public partial class Form1 : Form {
 		public Form1() {
@@ -23,5 +23,10 @@ namespace XNAPractical3 {
 
 
         }
+
+		private Matrix rotate(double degrees){
+			
+		}
+
 	}
 }
