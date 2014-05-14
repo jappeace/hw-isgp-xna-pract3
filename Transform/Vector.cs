@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Transform {
 	public class Vector {
-		double x { get; set; }
-		double y { get; set; }
+		public double x { get; set; }
+        public double y { get; set; }
 		private double _z;
-		double z { get; set; }
+        public double z { get; set; }
 
-		private double w{
+        public double w
+        {
 			get{
 				return _z;
 			}
