@@ -36,6 +36,13 @@ namespace ConsoleApplication1 {
 
 			z = x * y;
 			Console.WriteLine(z);
+
+			Console.WriteLine("Vectors");
+			Console.WriteLine("add and subtrackt");
+			Vector v = new Vector(1,2,3,1);
+			Console.WriteLine(v+v);
+			Console.WriteLine(v-v);
+			Console.WriteLine(v*v);
 			Console.ReadKey();
 		}
 	}
