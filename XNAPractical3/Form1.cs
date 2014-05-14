@@ -29,7 +29,16 @@ namespace XNAPractical3 {
         }
 
 		private Matrix rotate(double degrees){
-			return new Matrix();
+			double radians = (Math.PI / 180) * degrees;
+			return new Matrix(
+				new double[,]{
+					{Math.Cos(radians), Math.Sin(radians), 0,0},
+					{-Math.Sin(radians), Math.Cos(radians), 0,0},
+					{0, 0, 1,0},
+					{0, 0, 0,1},
+				}
+			);
+			
 		}
 
 	}
