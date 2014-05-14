@@ -36,7 +36,16 @@ namespace XNAPractical3 {
 
         private void Translate(Vector t)
         {
+            Matrix matrix = new Matrix(new double[,]{
+                {1, 0, 0, t.x},
+                {0, 1, 0, t.y},
+                {0, 0, 1, 0},
+                {0, 0, 0, 1}
+            });
 
+            square.ExecuteMatrix(matrix);
+
+            panel1.Invalidate();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -59,6 +68,10 @@ namespace XNAPractical3 {
                     break;
                 case 2:
                     rotate(25);
+                    stateCounter++;
+                    break;
+                case 3:
+                    Translate(new Vector(25, 50, 0, 1));
                     stateCounter = 1;
                     break;
             }
