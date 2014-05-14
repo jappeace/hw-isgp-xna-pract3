@@ -18,7 +18,6 @@ namespace XNAPractical3 {
 
             stateCounter = 1;
             square = new Square(400);
-			rotate(25);
 		}
 
         private void Scale(double scale)
@@ -55,11 +54,11 @@ namespace XNAPractical3 {
             switch (stateCounter)
             {
                 case 1:
-                    Scale(0.5);
+                    Scale(0.75);
                     stateCounter++;
                     break;
                 case 2:
-                    Scale(0.5);
+                    rotate(25);
                     stateCounter = 1;
                     break;
             }
@@ -75,6 +74,8 @@ namespace XNAPractical3 {
 					{0, 0, 0,1},
 				}
 			));
+
+            panel1.Invalidate();
 		}
 
 	}
