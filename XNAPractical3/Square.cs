@@ -22,6 +22,14 @@ namespace XNAPractical3
             _v4 = new Vector(-size / 2, size / 2, 0, 1);
         }
 
+        public void ExecuteMatrix(Matrix matrix)
+        {
+            _v1 = matrix * _v1;
+            _v2 = matrix * _v2;
+            _v3 = matrix * _v3;
+            _v4 = matrix * _v4;
+        }
+
         public void Draw(Graphics g)
         {
             g.DrawLine(Pens.Red, new Point((int)_v1.x + 250, (int)_v1.y + 250), new Point((int)_v2.x + 250, (int)_v2.y + 250));
