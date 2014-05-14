@@ -15,14 +15,26 @@ namespace XNAPractical3 {
         public Form1() {
 			InitializeComponent();
 
-            square = new Square(100);
+            square = new Square(400);
 		}
 
-        private void Scale()
+        private void Scale(double scale)
         {
-            square = new Square(10);
+            Matrix matrix = new Matrix(new double[,]{
+                {scale, 0, 0, 0},
+                {0, scale, 0, 0},
+                {0, 0, scale, 0},
+                {0, 0, 0, 1}
+            });
+
+            square.ExecuteMatrix(matrix);
 
             panel1.Invalidate();
+        }
+
+        private void Translate(Vector t)
+        {
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -37,7 +49,7 @@ namespace XNAPractical3 {
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            Scale();
+            Scale(0.9);
         }
 
 		private Matrix rotate(double degrees){
