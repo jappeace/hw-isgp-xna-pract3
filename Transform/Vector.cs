@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +13,42 @@ namespace Transform {
 		private double _z;
         public double z { get; set; }
 
-        public double w
+		/**
+		 * nice acces for matreci
+		 */
+		public double this[int i]{
+			get{
+				switch(i){
+					case 0:
+						return x;
+					case 1:
+						return y;
+					case 2:
+						return z;
+					case 3:
+						return w;
+				}
+				return Double.NaN;
+			}
+			set{
+				switch(i){
+					case 0:
+						 x =  value;
+						return;
+					case 1:
+						 y = value;
+						return;
+					case 2:
+						 z = value;
+						return;
+					case 3:
+						 w = value;
+						return;
+				}
+			}
+		}
+
+		public double w
         {
 			get{
 				return _z;

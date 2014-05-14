@@ -50,12 +50,12 @@ namespace Transform
 			return result;
 		}
 
-		public void ForEachRow(int x,receiveDataMember closure){
+		public void ForEachInColl(int x,receiveDataMember closure){
 			for(int y = 0; y < data.GetLength(1); y++){
 				closure(ref data[y, x]);
 			}
 		}
-		public void ForEachColl(int y,receiveDataMember closure){
+		public void ForEachInRow(int y,receiveDataMember closure){
 			for(int x = 0; x < data.GetLength(0); x++){
 				closure(ref data[y, x]);
 			}
@@ -95,7 +95,7 @@ namespace Transform
 			lhs.ForEach(
 			delegate(int x, int y, double value){
 				int i = 0;
-				rhs.ForEachColl(x, delegate(ref double one){
+				rhs.ForEachInRow(x, delegate(ref double one){
 					result.data[x,y] += one * lhs.data[i,y];
 					i++;
 				});
@@ -116,5 +116,14 @@ namespace Transform
 			Matrix rhs){
 			return rhs * lhs;
 		}
+
+		public static Vector operator *(Matrix lhs, Vector rhs){
+			Vector result = new Vector();
+			lhs.ForEach(delegate(int x, int y, double value) {
+				result[y] += rhs[x] * value;
+			});
+			return result;
+		}
+
 	}
 }

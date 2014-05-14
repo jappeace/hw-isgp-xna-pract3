@@ -25,7 +25,7 @@ namespace XNAPractical3 {
         }
 
 		private Matrix rotate(double degrees){
-			
+			return new Matrix();
 		}
 
 	}
