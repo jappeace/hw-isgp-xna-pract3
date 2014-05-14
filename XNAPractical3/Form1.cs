@@ -10,8 +10,12 @@ using System.Windows.Forms;
 using Transform;
 namespace XNAPractical3 {
 	public partial class Form1 : Form {
-		public Form1() {
+        private Square square;
+        
+        public Form1() {
 			InitializeComponent();
+
+            square = new Square(200);
 		}
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -21,7 +25,7 @@ namespace XNAPractical3 {
             g.DrawLine(Pens.Black, new Point(10, 250), new Point(490, 250));
             g.DrawLine(Pens.Black, new Point(250, 10), new Point(250, 490));
 
-
+            square.Draw(g);
         }
 
 		private Matrix rotate(double degrees){
